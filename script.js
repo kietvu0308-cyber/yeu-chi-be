@@ -10,17 +10,17 @@ const MAX_IMAGES = 5;
 let play = true;
 let noCount = 0;
 
-// Danh sách link ảnh dự phòng từ PostImg, cam kết 100% không bị lỗi hiển thị chặn nhúng
+// Danh sách link ảnh GIF mới từ Imgur - Đảm bảo hiển thị 100%
 const noGifs = [
-  "https://i.postimg.co/xC1D0bCr/cat-cry.gif",     // Lần 1: Khóc ăn vạ
-  "https://i.postimg.co/0yHjGSpY/cat-sad.gif",     // Lần 2: Buồn thiu
-  "https://i.postimg.co/KjqYgVGr/cat-mad.gif",     // Lần 3: Đập bàn dỗi
-  "https://i.postimg.co/zXyCgN0t/cat-angry.gif",   // Lần 4: Quay lưng giận dữ
-  "https://i.postimg.co/02t87V6D/cat-giveup.gif"   // Lần 5: Chắp tay cầu xin van nài
+  "https://i.imgur.com/vH3LIdA.gif",     // Lần 1: Khóc ăn vạ
+  "https://i.imgur.com/pZqNAnX.gif",     // Lần 2: Buồn thiu
+  "https://i.imgur.com/S9gXNsc.gif",     // Lần 3: Đập bàn dỗi
+  "https://i.imgur.com/mOtwmR8.gif",     // Lần 4: Quay lưng giận dữ
+  "https://i.imgur.com/K6qYvYh.gif"      // Lần 5: Chắp tay cầu xin van nài
 ];
 
 // Ảnh khi cô ấy bấm "Em chấp nhận" (Mèo nhảy hạnh phúc)
-const yesGif = "https://i.postimg.co/brgq7wS9/cat-yes.gif";
+const yesGif = "https://i.imgur.com/z7bZInw.gif";
 
 yesButton.addEventListener("click", handleYesClick);
 
