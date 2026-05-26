@@ -10,16 +10,17 @@ const MAX_IMAGES = 5;
 let play = true;
 let noCount = 0;
 
-// Đường dẫn gọi trực tiếp file ảnh GIF trong kho chứa GitHub của bạn
+// Đổi tên gọi khớp chính xác với đuôi file thực tế đang nằm trên GitHub của bạn
+// Vì thiếu ảnh số 4 nên mình sẽ dùng lại ảnh 3 để web không bị trống ảnh
 const noGifs = [
-  "cat-1.gif",
-  "cat-2.gif",
-  "cat-3.gif",
-  "cat-4.gif",
-  "cat-5.gif"
+  "cat-1.gif.png",
+  "cat-2.gif.png",
+  "cat-3.gif.png",
+  "cat-3.gif.png", // Dùng tạm ảnh 3 thay thế cho ảnh số 4 bị thiếu
+  "cat-5.gif.png"
 ];
 
-const yesGif = "cat-yes.gif";
+const yesGif = "cat-yes.gif.png";
 
 yesButton.addEventListener("click", handleYesClick);
 
