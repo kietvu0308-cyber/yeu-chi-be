@@ -9,82 +9,114 @@ html {
 }
 
 body {
-  background-color: #fff0f6;
-  font-family: "Protest Riot", sans-serif;
+  background: linear-gradient(135deg, #fce4ec 0%, #ffe0b2 100%);
+  font-family: "Quicksand", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
 .container {
-  height: 100vh;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  max-width: 60rem;
 }
 
-.cat-img {
-  width: 30rem;
-  height: 30rem;
-  margin-bottom: 2rem;
-  object-fit: contain;
-  border-radius: 15px;
-}
-
-.title {
-  font-size: 3.2rem;
-  color: #f53699;
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 3.5rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   text-align: center;
+}
+
+.main-title {
+  font-size: 2.6rem;
+  color: #4a4a4a;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #6c757d;
+  line-height: 1.6;
   margin-bottom: 3rem;
-  padding: 0 2rem;
-  line-height: 1.4;
-  max-width: 50rem;
-  min-height: 9rem; /* Giữ khung cố định để không bị giật màn hình khi đổi chữ */
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem; /* Khoảng cách giữa 2 nút */
-  min-height: 15rem; /* Tăng không gian để chứa nút Yes khi to lên */
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
-.btn {
-  border: none;
-  border-radius: 25px;
-  color: white;
+.topic-btn {
+  background-color: #ffffff;
+  border: 2px solid #f8bbd0;
+  color: #5d4037;
+  padding: 1.4rem 1rem;
+  font-size: 1.5rem;
   font-weight: 600;
+  border-radius: 12px;
   cursor: pointer;
-  display: inline-block;
-  transition: all 0.2s ease-out; /* Làm hiệu ứng to/nhỏ mượt mà hơn */
-  white-space: nowrap; /* Không cho chữ bị xuống dòng khi nút nhỏ lại */
+  transition: all 0.3s ease;
+  font-family: inherit;
 }
 
-/* Nút Đồng ý (Màu xanh) */
-.btn--yes {
-  padding: 1.5rem 3.5rem;
-  font-size: 1.8rem;
-  background-color: #40c057;
-  box-shadow: 0 4px 10px rgba(64, 192, 87, 0.3);
+.topic-btn:hover {
+  background-color: #f8bbd0;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(248, 187, 208, 0.4);
 }
 
-.btn--yes:hover {
-  background-color: #2b8a3e;
-  transform: scale(1.02);
+.message-box {
+  background-color: #fff8e1;
+  border-left: 4px solid #ffe082;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+  animation: fadeIn 0.4s ease-in-out;
 }
 
-/* Nút Từ chối (Màu đỏ/hồng đậm) */
-.btn--no {
-  padding: 1.5rem 3.5rem;
-  font-size: 1.8rem;
-  background-color: #ff6b6b;
-  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+#message-text {
+  font-size: 1.6rem;
+  color: #424242;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  white-space: pre-line;
 }
 
-.btn--no:hover {
-  background-color: #fa5252;
+.close-btn {
+  background-color: #e0e0e0;
+  border: none;
+  color: #616161;
+  padding: 0.8rem 1.8rem;
+  font-size: 1.3rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+.close-btn:hover {
+  background-color: #bdbdbd;
 }
 
 .hidden {
   display: none !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
