@@ -1,29 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <title>Gửi bé iu của anhhh</title>
+    <title>Gửi em...</title>
   </head>
   <body>
     <main class="container">
-      <!-- Bạn có thể đổi ảnh cat-2 thành ảnh chú mèo đang hối lỗi -->
-      <img class="cat-img" src="cat-2.gif.png" alt="Picture of a cat" />
-      
-      <p class="title">
-        Anh xin lỗi mà, đừng giận anh nữa bé iu nhéee? 🥺❤️
-      </p>
-      
-      <div class="buttons">
-        <button type="button" class="btn btn--yes">Đồng ý tha lỗi 🥰</button>
-        <button type="button" class="btn btn--no">Không bao giờ 😡</button>
+      <div class="card">
+        <h1 class="main-title">Gửi em, một chút bình yên...</h1>
+        <p class="subtitle">
+          Dù sau này không còn đồng hành cùng nhau nữa, mong em luôn vững vàng. 
+          Bất cứ khi nào cảm thấy mệt mỏi, hãy chọn một ô bên dưới nhé.
+        </p>
+
+        <!-- Danh sách các ô lựa chọn -->
+        <div class="topic-grid">
+          <button class="topic-btn" data-topic="daily">Nhắc nhở hằng ngày 🌿</button>
+          <button class="topic-btn" data-topic="sad">Hôm nay buồn 🌧️</button>
+          <button class="topic-btn" data-topic="study">Học áp lực 📚</button>
+          <button class="topic-btn" data-topic="family">Gia đình áp lực 🏠</button>
+          <button class="topic-btn" data-topic="hurt">Bị người yêu làm đau 💔</button>
+          <button class="topic-btn" data-topic="miss">Nhớ Kiệt 🌙</button>
+        </div>
+
+        <!-- Khung hiển thị lời nhắn an ủi -->
+        <div id="message-box" class="message-box hidden">
+          <p id="message-text"></p>
+          <button id="close-btn" class="close-btn">Đóng lời nhắn</button>
+        </div>
       </div>
     </main>
-    <audio id="bg-music" src="anh-nang-cua-anh.mp3" loop></audio>
-    <script type="module" src="script.js"></script>
+
+    <script src="script.js"></script>
   </body>
 </html>
