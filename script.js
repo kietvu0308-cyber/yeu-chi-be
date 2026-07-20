@@ -1,80 +1,45 @@
 "use strict";
 
-const titleElement = document.querySelector(".title");
-const yesButton = document.querySelector(".btn--yes");
-const noButton = document.querySelector(".btn--no");
-const catImg = document.querySelector(".cat-img");
-const bgMusic = document.getElementById("bg-music");
+// Tập hợp các lời nhắn cho từng chủ đề
+const messages = {
+  hangngay: 
+    "Đừng quên ăn uống đúng giờ và uống đủ nước nhé. Dù bận rộn đến đâu cũng hãy nhớ giữ gìn sức khỏe. Chăm sóc bản thân thật tốt nhé! có bệnh thì nhớ uống thuốc nghe chưa bé tuyền ngốc ",
+  
+  buon: 
+    "Nếu hôm nay có chuyện làm em buồn, cứ khóc một chút cũng không sao. Khóc xong rồi thì thở sâu, ngày mai mọi thứ rồi sẽ ổn thôi. Em đã làm rất tốt rồi chị bé làm rất giỏi òi moaz.",
+  
+  hoc: 
+    "chòi ôi chị bé học cả đêm luôn mò hong sao hết cố gắng lắm rồi tốt lắm òi hong sao nè moaz moaz moaz vui lên nhé chị bé giỏi lắm luôn á!",
+  
+  giadinh: 
+    "em thương em thương ông bà nội hay ông anh hai kì cục quá ha bắt nạt chị bé tui quài ò em thương thương moaz moaz đã ăn gì chưa nè ăn đi cho đỡ bùn nhen",
+  
+  love: 
+    "ảnh làm chị buôn hay bỏ chị bỏ em thương em thương nghỉ ngơi vô mơ em ôm nhá moaz moaz em yêu chị lắm á kệ đi tìm người khác hong sao nhen ",
+  
+  nhokiet: 
+    "em xin lỗi..."
+};
 
-// Quản lý kích thước hiện tại của nút
-let yesPaddingX = 3.5;
-let yesPaddingY = 1.5;
-let yesFontSize = 1.8;
+const topicButtons = document.querySelectorAll(".topic-btn");
+const messageBox = document.getElementById("message-box");
+const messageText = document.getElementById("message-text");
+const closeBtn = document.getElementById("close-btn");
 
-let noPaddingX = 3.5;
-let noPaddingY = 1.5;
-let noFontSize = 1.8;
-
-// Các câu thoại thay đổi khi bấm "Từ chối" liên tục để thuyết phục
-const excuses = [
-  "Ơ sao lại bấm nút này rồi 🥺",
-  "Thôi mà, tha lỗi cho anh đi màaaa 😭",
-  "Anh biết lỗi rồi, hứa không làm bé buồn nữa đâu...",
-  "Nút này sắp biến mất rồi kìa, bấm nút xanh đi bé ơi!",
-  "Năn nỉ bé iu luôn áaa 🥺❤️"
-];
-let excuseIndex = 0;
-
-noButton.addEventListener("click", function () {
-  // Phát nhạc ngay khi cô ấy tương tác (từ chối cũng phát luôn cho mủi lòng)
-  bgMusic.play().catch(error => {
-    console.log("Trình duyệt chặn phát tự động:", error);
+// Xử lý sự kiện khi bấm vào từng ô
+topicButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    const topic = this.getAttribute("data-topic");
+    if (messages[topic]) {
+      messageText.innerText = messages[topic];
+      messageBox.classList.remove("hidden");
+      // Cuộn nhẹ xuống lời nhắn nếu màn hình nhỏ
+      messageBox.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
   });
-
-  // 1. Tăng kích thước nút ĐỒNG Ý
-  yesPaddingX += 1.5;
-  yesPaddingY += 0.8;
-  yesFontSize += 0.4;
-  
-  yesButton.style.padding = `${yesPaddingY}rem ${yesPaddingX}rem`;
-  yesButton.style.fontSize = `${yesFontSize}rem`;
-
-  // 2. Giảm kích thước nút TỪ CHỐI
-  if (noFontSize > 0.6) { // Giới hạn không để nút biến mất hoàn toàn ngay lập tức
-    noPaddingX -= 0.5;
-    noPaddingY -= 0.2;
-    noFontSize -= 0.2;
-    
-    noButton.style.padding = `${noPaddingY}rem ${noPaddingX}rem`;
-    noButton.style.fontSize = `${noFontSize}rem`;
-  } else {
-    noButton.classList.add("hidden"); // Nhỏ quá rồi thì ẩn luôn!
-  }
-
-  // 3. Thay đổi tiêu đề dỗi hờn
-  if (excuseIndex < excuses.length) {
-    titleElement.innerHTML = excuses[excuseIndex];
-    excuseIndex++;
-  } else {
-    titleElement.innerHTML = "Bé không có lựa chọn khác đâu, bấm Đồng ý đi nèee! 😜";
-  }
-  
-  // Bạn có thể đổi ảnh mèo dỗi tại đây nếu có
-  // catImg.src = "cat-sad.gif.png"; 
 });
 
-yesButton.addEventListener("click", function () {
-  // Đảm bảo nhạc phát khi đồng ý
-  bgMusic.play().catch(e => console.log(e));
-
-  titleElement.innerHTML = "Moahhh! Biết ngay bé iu sẽ tha lỗi cho anh màaa 🥰❤️✨";
-  
-  // Ẩn nút Từ chối, đưa nút Đồng ý về trạng thái ăn mừng
-  noButton.classList.add("hidden");
-  yesButton.style.padding = "1.5rem 3.5rem";
-  yesButton.style.fontSize = "1.8rem";
-  yesButton.innerHTML = "Yêu bé nhất trên đời! ❤️";
-  
-  // Đổi sang ảnh mèo hạnh phúc
-  catImg.src = "cat-yes.gif.png";
+// Nút đóng lời nhắn
+closeBtn.addEventListener("click", function () {
+  messageBox.classList.add("hidden");
 });
