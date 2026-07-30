@@ -5,28 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <title>Bảng Đánh Giá Điểm Tình Cảm Hàng Tháng ❤️</title>
   </head>
   <body>
     <main class="container">
       <div class="card">
-        <h1 class="main-title">Bảng Đánh Giá Chồng Yêu 💖</h1>
-        <p class="subtitle">Tháng này anh thể hiện thế nào? Cùng xem tổng điểm tình cảm nhé!</p>
+        <h1 class="main-title">Bảng Đánh Giá Điểm Tình Cảm 💖</h1>
+        <p class="subtitle">Tháng này anh thể hiện thế nào? Cùng chấm điểm nhé!</p>
 
-        <!-- Thẻ hiển thị tổng điểm -->
-        <div class="score-card">
-          <span class="score-label">Điểm Tình Cảm Hiện Tại</span>
-          <div class="score-value" id="total-score">100</div>
-          <div class="score-max">/ 100 điểm</div>
-          <div class="progress-bar-bg">
-            <div class="progress-bar-fill" id="progress-bar"></div>
+        <!-- CỘT CHỮ NHẬT HỒNG NỔI BẬT Ở GIỮA THANG ĐIỂM -->
+        <div class="score-column-wrapper">
+          <span class="score-column-title">Thang Điểm Tình Cảm</span>
+          <div class="score-pink-card">
+            <div class="score-display">
+              <span id="current-score" class="score-current">100</span>
+              <span class="score-divider">/</span>
+              <span class="score-total">100</span>
+            </div>
+            <!-- Thanh tiến trình lồng trong cột hồng -->
+            <div class="progress-container">
+              <div class="progress-bar-fill" id="progress-bar"></div>
+            </div>
           </div>
         </div>
 
         <div class="actions">
-          <button id="reset-btn" class="reset-btn">🔄 Reset về 100 điểm</button>
+          <button id="reset-btn" class="reset-btn">🔄 Reset về 100/100</button>
         </div>
 
         <!-- Nhóm điểm cộng -->
