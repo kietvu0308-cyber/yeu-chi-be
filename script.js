@@ -1,5 +1,12 @@
 "use strict";
-
+const firebaseConfig = {
+  apiKey: "AIzaSyAfFATzxZ7rL7YwQEu3lgRIAwfFLo2l4aU",
+  authDomain: "danh-gia-cua.firebaseapp.com",
+  projectId: "danh-gia-cua",
+  storageBucket: "danh-gia-cua.firebasestorage.app",
+  messagingSenderId: "216706571557",
+  appId: "1:216706571557:web:63c6fa03f864f8b516cecc"
+};
 let currentScore = 100;
 const history = [];
 
