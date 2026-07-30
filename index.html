@@ -15,7 +15,7 @@
         <h1 class="main-title">Bảng Đánh Giá Điểm Tình Cảm 💖</h1>
         <p class="subtitle">Tháng này anh thể hiện thế nào? Cùng chấm điểm nhé!</p>
 
-        <!-- CỘT CHỮ NHẬT HỒNG NỔI BẬT Ở GIỮA THANG ĐIỂM -->
+        <!-- Thang điểm chính -->
         <div class="score-column-wrapper">
           <span class="score-column-title">Thang Điểm Tình Cảm</span>
           <div class="score-pink-card">
@@ -31,7 +31,7 @@
         </div>
 
         <div class="actions">
-          <button id="reset-btn" class="reset-btn">🔄 Reset về 100/100</button>
+          <button id="reset-btn" class="reset-btn">🔄 Reset điểm tháng hiện tại</button>
         </div>
 
         <!-- Nhóm điểm cộng -->
@@ -72,6 +72,16 @@
             <button class="score-btn bonus" data-points="20" data-reason="Có mặt ngay lập tức khi thực sự cần">
               +20 | Bận việc nhưng vẫn có mặt khi cần
             </button>
+          </div>
+
+          <!-- Ô NHẬP ĐIỂM CỘNG TÙY CHỈNH -->
+          <div class="custom-input-box bonus-box">
+            <h4>➕ Khác (Cộng điểm tùy chỉnh)</h4>
+            <div class="input-group">
+              <input type="text" id="custom-bonus-reason" placeholder="Lý do cộng điểm (ví dụ: Gội đầu cho vơ)..." />
+              <input type="number" id="custom-bonus-points" placeholder="Điểm (+)" min="1" value="5" />
+              <button id="add-custom-bonus-btn" class="custom-btn bonus-add">Thêm điểm cộng</button>
+            </div>
           </div>
         </section>
 
@@ -117,20 +127,49 @@
               -50 | Quên ngày kỷ niệm / Sinh nhật 🚨
             </button>
           </div>
+
+          <!-- Ô NHẬP ĐIỂM TRỪ TÙY CHỈNH -->
+          <div class="custom-input-box penalty-box">
+            <h4>➖ Khác (Trừ điểm tùy chỉnh)</h4>
+            <div class="input-group">
+              <input type="text" id="custom-penalty-reason" placeholder="Lý do trừ điểm (ví dụ: Không ngắt cầu giao)..." />
+              <input type="number" id="custom-penalty-points" placeholder="Điểm (-)" min="1" value="5" />
+              <button id="add-custom-penalty-btn" class="custom-btn penalty-add">Thêm điểm trừ</button>
+            </div>
+          </div>
         </section>
 
-        <!-- Nhật ký đánh giá -->
+        <!-- Nhật ký đánh giá tháng hiện tại -->
         <section class="history-section">
-          <h2 class="history-title">📜 Lịch Sử Đánh Giá Trong Tháng</h2>
+          <h2 class="history-title">📜 Lịch Sử Đánh Giá Trong Tháng Này</h2>
           <ul id="history-list" class="history-list">
             <li class="empty-msg">Chưa có đánh giá nào trong tháng này.</li>
           </ul>
         </section>
 
+        <!-- NÚT LƯU BỰ TỔNG KẾT THÁNG -->
+        <section class="save-month-section">
+          <div class="month-selector-group">
+            <label for="save-month-input">📅 Chọn tháng cần lưu tổng kết:</label>
+            <input type="month" id="save-month-input" />
+          </div>
+          <button id="save-month-btn" class="big-save-btn">
+            💾 LƯU BẢNG ĐIỂM TỔNG KẾT THÁNG NÀY
+          </button>
+        </section>
+
+        <!-- KHO LƯU TRỮ LỊCH SỬ THEO CÁC THÁNG -->
+        <section class="monthly-archive-section">
+          <h2 class="history-title">📚 Kho Lưu Trữ Đánh Giá Theo Tháng</h2>
+          <div id="monthly-archive-list" class="archive-container">
+            <p class="empty-msg">Chưa có tháng nào được tổng kết lưu trữ.</p>
+          </div>
+        </section>
+
       </div>
     </main>
 
-    <!-- CHÈN FIREBASE VÀ SCRIPT TẠI ĐÂY LÀ CHUẨN NHẤT -->
+    <!-- FIREBASE SDK & SCRIPT -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
     <script src="script.js"></script>
