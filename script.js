@@ -7,6 +7,9 @@ const firebaseConfig = {
   messagingSenderId: "216706571557",
   appId: "1:216706571557:web:63c6fa03f864f8b516cecc"
 };
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const scoreRef = db.ref("love_score");
 let currentScore = 100;
 const history = [];
 
